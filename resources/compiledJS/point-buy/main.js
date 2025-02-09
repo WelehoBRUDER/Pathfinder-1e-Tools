@@ -11,6 +11,7 @@ class PointBuy {
         standardFantasy: 15,
         highFantasy: 20,
         epicFantasy: 25,
+        mythicFantasy: 30,
     };
     type = "highFantasy";
     points = this.pointBuyTypes.highFantasy; // Pathfinder Society uses 20 points as standard
