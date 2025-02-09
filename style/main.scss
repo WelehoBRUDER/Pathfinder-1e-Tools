@@ -1,0 +1,98 @@
+$bg-color: #252525;
+$dark-bg-color: #1a1a1a;
+$lighter-bg-color: #2f2f2f;
+$font-color: white;
+$red: #ff0000;
+
+:root {
+  font-size: 62.5%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  body {
+    * {
+      color: $font-color;
+    }
+    margin: 0;
+    padding: 0;
+    background-color: $bg-color;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.point-buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.4rem;
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .point-inputs {
+    border: 0.5rem solid $dark-bg-color;
+    th {
+      width: 12rem;
+      border: 0.5rem solid $dark-bg-color;
+      height: 6rem;
+      background: $lighter-bg-color;
+
+      &.score {
+        width: 18rem;
+      }
+    }
+    .point-input {
+      font-size: 2.4rem;
+      gap: 1rem;
+
+      button {
+        background: $bg-color;
+        font-size: 2.4rem;
+        width: 3.5rem;
+        border-radius: 50%;
+
+        &:hover {
+          background: $dark-bg-color;
+        }
+      }
+
+      input {
+        font-size: 2.4rem;
+        background: $dark-bg-color;
+        outline: none;
+        border: none;
+        text-align: center;
+        width: 7rem;
+        padding: 0.6rem;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+
+  .remain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .point-remain {
+      margin: 0;
+    }
+
+    .warning {
+      margin: 0;
+      color: $red;
+      font-size: 1.2rem;
+    }
+  }
+}
