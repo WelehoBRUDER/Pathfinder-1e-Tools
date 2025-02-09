@@ -21,9 +21,18 @@
     <h1 class="title">Point Buy</h1>
     <table class="point-inputs">
     </table>
-    <div class="remain">
-      <p class="point-remain"></p>
-      <span class="warning">Using more points than allowed!</span>
+    <div class="bottom">
+      <div class="remain">
+        <p class="point-remain"></p>
+        <span class="warning">Using more points than allowed!</span>
+        <span class="reminder">Not all points are allocated!</span>
+      </div>
+      <select name="point-buy-type" id="" class="point-buy-type" onchange="pointBuy.changePointBuyType(this.value)">
+        <option value="lowFantasy">Low Fantasy</option>
+        <option value="standardFantasy">Standard Fantasy</option>
+        <option value="highFantasy" selected="selected">High Fantasy</option>
+        <option value="epicFantasy">Epic Fantasy</option>
+      </select>
     </div>
   </div>
 </body>

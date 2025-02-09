@@ -10,6 +10,7 @@ class PointBuy {
 	inputs: HTMLDivElement = document.querySelector(".point-inputs");
 	pointsRemain: HTMLParagraphElement = document.querySelector(".point-remain");
 	pointWarning: HTMLParagraphElement = document.querySelector(".warning");
+	pointReminder: HTMLParagraphElement = document.querySelector(".reminder");
 
 	abilityScores: Array<string> = ["str", "dex", "con", "int", "wis", "cha"];
 	pointBuyTypes: PointBuyTypes = {
@@ -18,7 +19,7 @@ class PointBuy {
 		highFantasy: 20,
 		epicFantasy: 25,
 	};
-	type: "highFantasy";
+	type: string = "highFantasy";
 	points: number = this.pointBuyTypes.highFantasy; // Pathfinder Society uses 20 points as standard
 	costs: { [key: number]: number } = {
 		7: -4,
@@ -36,6 +37,14 @@ class PointBuy {
 	};
 	min: number = 7;
 	max: number = 18;
+
+	changePointBuyType = (type: string): void => {
+		const prevType: string = this.type;
+		this.type = type;
+		const difference: number = this.pointBuyTypes[type] - this.pointBuyTypes[prevType];
+		this.points += difference;
+		this.updatePoints();
+	};
 
 	createInput = (ability: string): HTMLTableRowElement => {
 		const div = document.createElement("tr");
@@ -119,6 +128,7 @@ class PointBuy {
 	updatePoints(): void {
 		this.pointsRemain.textContent = `Points Remaining: ${this.points.toString()}`;
 		this.pointWarning.style.display = this.points < 0 ? "block" : "none";
+		this.pointReminder.style.display = this.points > 0 ? "block" : "none";
 	}
 
 	setScore(input: HTMLInputElement, score: string) {

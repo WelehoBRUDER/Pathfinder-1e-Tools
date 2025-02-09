@@ -4,6 +4,7 @@ class PointBuy {
     inputs = document.querySelector(".point-inputs");
     pointsRemain = document.querySelector(".point-remain");
     pointWarning = document.querySelector(".warning");
+    pointReminder = document.querySelector(".reminder");
     abilityScores = ["str", "dex", "con", "int", "wis", "cha"];
     pointBuyTypes = {
         lowFantasy: 10,
@@ -11,7 +12,7 @@ class PointBuy {
         highFantasy: 20,
         epicFantasy: 25,
     };
-    type;
+    type = "highFantasy";
     points = this.pointBuyTypes.highFantasy; // Pathfinder Society uses 20 points as standard
     costs = {
         7: -4,
@@ -29,6 +30,13 @@ class PointBuy {
     };
     min = 7;
     max = 18;
+    changePointBuyType = (type) => {
+        const prevType = this.type;
+        this.type = type;
+        const difference = this.pointBuyTypes[type] - this.pointBuyTypes[prevType];
+        this.points += difference;
+        this.updatePoints();
+    };
     createInput = (ability) => {
         const div = document.createElement("tr");
         div.classList.add("point-input");
@@ -100,6 +108,7 @@ class PointBuy {
     updatePoints() {
         this.pointsRemain.textContent = `Points Remaining: ${this.points.toString()}`;
         this.pointWarning.style.display = this.points < 0 ? "block" : "none";
+        this.pointReminder.style.display = this.points > 0 ? "block" : "none";
     }
     setScore(input, score) {
         const prev = player.abilityScores.getAllScores()[score];

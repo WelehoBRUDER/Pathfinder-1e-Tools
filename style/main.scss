@@ -3,17 +3,45 @@ $dark-bg-color: #1a1a1a;
 $lighter-bg-color: #2f2f2f;
 $font-color: white;
 $red: #ff0000;
+$yellow: #ffff00;
 
 :root {
   font-size: 62.5%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     * {
       color: $font-color;
     }
     margin: 0;
     padding: 0;
     background-color: $bg-color;
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    background: $dark-bg-color;
+    font-size: 3rem;
+
+    button {
+      background: $bg-color;
+      font-size: 3rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+
+      &:hover {
+        background: $lighter-bg-color;
+      }
+    }
   }
 }
 
@@ -34,6 +62,7 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
   font-size: 2.4rem;
+  width: max-content;
 
   .title {
     font-size: 3rem;
@@ -79,20 +108,36 @@ input[type="number"] {
     }
   }
 
-  .remain {
+  .bottom {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    width: 100%;
 
-    .point-remain {
-      margin: 0;
+    select {
+      background: $dark-bg-color;
     }
 
-    .warning {
-      margin: 0;
-      color: $red;
-      font-size: 1.2rem;
+    .remain {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+
+      .point-remain {
+        margin: 0;
+      }
+
+      .warning,
+      .reminder {
+        margin: 0;
+        color: $red;
+        font-size: 1.2rem;
+      }
+
+      .reminder {
+        color: $yellow;
+      }
     }
   }
 }
