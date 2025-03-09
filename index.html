@@ -10,33 +10,45 @@
   <script src="resources/compiledJS/general/ancestries.js" defer></script>
 
   <script src="resources/compiledJS/general/player.js" defer></script>
-  <script src="resources/compiledJS/point-buy/main.js" defer></script>
+  <script src="resources/compiledJS/character-creation/ancestrySelection.js" defer></script>
+  <script src="resources/compiledJS/character-creation/pointBuy.js" defer></script>
+  <script src="resources/compiledJS/character-creation/characterCreation.js" defer></script>
 </head>
 
 <body>
   <header class="header">
     <nav class="nav-bar">
-      <button class="nav-button">Point Buy</button>
+
     </nav>
   </header>
-  <div class="point-buy">
-    <h1 class="title">Point Buy</h1>
-    <table class="point-inputs">
-    </table>
-    <div class="bottom">
-      <div class="remain">
-        <p class="point-remain"></p>
-        <span class="warning">Using more points than allowed!</span>
-        <span class="reminder">Not all points are allocated!</span>
+  <main class="main">
+    <div id="character-creator">
+      <nav class="stages-nav"></nav>
+      <div class="details hidden"></div>
+      <div class="ancestry hidden"></div>
+      <div class="class hidden"></div>
+      <div class="background hidden"></div>
+      <div class="abilities hidden">
+        <h1 class="title">Point Buy</h1>
+        <table class="point-inputs">
+        </table>
+        <div class="bottom">
+          <div class="remain">
+            <p class="point-remain"></p>
+            <span class="warning">Using more points than allowed!</span>
+            <span class="reminder">Not all points are allocated!</span>
+          </div>
+          <select name="point-buy-type" id="" class="point-buy-type" onchange="pointBuy.changePointBuyType(this.value)">
+            <option value="lowFantasy">(10) Low Fantasy</option>
+            <option value="standardFantasy">(15) Standard Fantasy</option>
+            <option value="highFantasy" selected="selected">(20) High Fantasy</option>
+            <option value="epicFantasy">(25) Epic Fantasy</option>
+            <option value="mythicFantasy">(30) Mythic Fantasy</option>
+          </select>
+        </div>
       </div>
-      <select name="point-buy-type" id="" class="point-buy-type" onchange="pointBuy.changePointBuyType(this.value)">
-        <option value="lowFantasy">(10) Low Fantasy</option>
-        <option value="standardFantasy">(15) Standard Fantasy</option>
-        <option value="highFantasy" selected="selected">(20) High Fantasy</option>
-        <option value="epicFantasy">(25) Epic Fantasy</option>
-        <option value="mythicFantasy">(30) Mythic Fantasy</option>
-      </select>
-    </div>
+      <div class="skills hidden"></div>
+  </main>
   </div>
 </body>
 

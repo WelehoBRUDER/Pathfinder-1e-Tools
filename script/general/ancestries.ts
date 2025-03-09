@@ -44,6 +44,7 @@ class Ancestries {
 			});
 		});
 		console.log(this.getAncestryByName("human"));
+		characterCreator.createStages();
 	}
 
 	async getData(): Promise<any> {

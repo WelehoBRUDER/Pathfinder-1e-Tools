@@ -79,13 +79,15 @@ class PointBuy {
 		input.value = player.abilityScores.getAllScores()[ability].toString();
 		input.min = this.min.toString();
 		input.max = this.max.toString();
-		input.addEventListener("keyup", () => {
+		input.addEventListener("focusout", () => {
 			this.limitPoints(input);
 			this.setScore(input, ability);
 		});
-		input.addEventListener("input", () => {
-			this.limitPoints(input);
-			this.setScore(input, ability);
+		input.addEventListener("keyup", (e: KeyboardEvent) => {
+			if (e.key === "Enter") {
+				this.limitPoints(input);
+				this.setScore(input, ability);
+			}
 		});
 
 		let interval: any;
@@ -172,6 +174,3 @@ class PointBuy {
 		this.inputs.append(head);
 	}
 }
-
-const pointBuy = new PointBuy();
-pointBuy.createPointBuy();
