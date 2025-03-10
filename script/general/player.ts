@@ -1,7 +1,7 @@
 class Player {
 	name: string;
 	abilityScores: AbilityScores;
-	constructor(name: string) {
+	constructor(name: string = "Unnamed Pathfinder") {
 		this.name = name;
 		this.abilityScores = new AbilityScores();
 	}
@@ -68,5 +68,3 @@ class AbilityScores {
 		return this[ability] + 10;
 	}
 }
-
-let player = new Player("Player Character");

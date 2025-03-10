@@ -8,12 +8,14 @@ class CharacterCreator {
 	private ancestrySelection: AncestrySelection = new AncestrySelection();
 	private pointBuy: PointBuy = new PointBuy();
 
+	/* PC */
+	private pc: Player = new Player();
+
 	public constructor() {}
 
 	public createStages(): void {
 		this.stagesNav.innerHTML = "";
 		this.createCurrentStage();
-		console.log("??");
 		this.stages.forEach((stage: string, id: number) => {
 			const button = document.createElement("button");
 			button.textContent = `${id + 1}. ${stage}`;
@@ -83,6 +85,10 @@ class CharacterCreator {
 	public createSkillsStage(): void {}
 
 	public createDetailsStage(): void {}
+
+	public getPlayer(): Player {
+		return this.pc;
+	}
 }
 
 const characterCreator = new CharacterCreator();

@@ -60,7 +60,7 @@ class PointBuy {
         const container = document.createElement("div");
         const input = document.createElement("input");
         input.type = "number";
-        input.value = player.abilityScores.getAllScores()[ability].toString();
+        input.value = characterCreator.getPlayer().abilityScores.getAllScores()[ability].toString();
         input.min = this.min.toString();
         input.max = this.max.toString();
         input.addEventListener("focusout", () => {
@@ -102,7 +102,7 @@ class PointBuy {
         }
     };
     updateModifiers() {
-        const modifiers = player.abilityScores.getAllModifiers();
+        const modifiers = characterCreator.getPlayer().abilityScores.getAllModifiers();
         document.querySelectorAll(".ability-modifier").forEach((modifier) => {
             const mod = modifiers[modifier.classList[1]];
             modifier.textContent = `${mod >= 0 ? "+" : ""}${modifiers[modifier.classList[1]]}`;
@@ -114,13 +114,13 @@ class PointBuy {
         this.pointReminder.style.display = this.points > 0 ? "block" : "none";
     }
     setScore(input, score) {
-        const prev = player.abilityScores.getAllScores()[score];
+        const prev = characterCreator.getPlayer().abilityScores.getAllScores()[score];
         const value = parseInt(input.value);
         if (isNaN(value)) {
             input.value = prev.toString();
             return;
         }
-        player.abilityScores.modifyWithPointBuy(score, value - 10);
+        characterCreator.getPlayer().abilityScores.modifyWithPointBuy(score, value - 10);
         this.points += this.costs[prev];
         this.points -= this.costs[value];
         this.updatePoints();

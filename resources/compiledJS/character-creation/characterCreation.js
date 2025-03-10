@@ -7,11 +7,12 @@ class CharacterCreator {
     /* Classes */
     ancestrySelection = new AncestrySelection();
     pointBuy = new PointBuy();
+    /* PC */
+    pc = new Player();
     constructor() { }
     createStages() {
         this.stagesNav.innerHTML = "";
         this.createCurrentStage();
-        console.log("??");
         this.stages.forEach((stage, id) => {
             const button = document.createElement("button");
             button.textContent = `${id + 1}. ${stage}`;
@@ -72,6 +73,9 @@ class CharacterCreator {
     }
     createSkillsStage() { }
     createDetailsStage() { }
+    getPlayer() {
+        return this.pc;
+    }
 }
 const characterCreator = new CharacterCreator();
 characterCreator.createStages();

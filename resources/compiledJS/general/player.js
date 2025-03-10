@@ -2,7 +2,7 @@
 class Player {
     name;
     abilityScores;
-    constructor(name) {
+    constructor(name = "Unnamed Pathfinder") {
         this.name = name;
         this.abilityScores = new AbilityScores();
     }
@@ -52,5 +52,4 @@ class AbilityScores {
         return this[ability] + 10;
     }
 }
-let player = new Player("Player Character");
 //# sourceMappingURL=player.js.map
